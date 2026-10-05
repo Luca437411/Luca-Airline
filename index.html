@@ -1,24 +1,171 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luca Airline</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0077b6, #90e0ef);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        h1 {
+            color: #0077b6;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        input {
+            width: 90%;
+            padding: 13px;
+            margin: 8px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 14px 30px;
+            background: #0077b6;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #005f8f;
+        }
+
+        #ticket {
+            display: none;
+            margin-top: 30px;
+            text-align: left;
+            background: linear-gradient(135deg, #023e8a, #0077b6);
+            color: white;
+            padding: 25px;
+            border-radius: 18px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #ticket h2 {
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        .ticket-info {
+            background: white;
+            color: #222;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 15px;
+        }
+
+        .ticket-info p {
+            margin: 8px 0;
+        }
+
+        .plane {
+            font-size: 45px;
+            float: right;
+        }
+
+        .ticket-number {
+            margin-top: 15px;
+            font-size: 13px;
+            opacity: 0.8;
+        }
+    </style>
 </head>
+
 <body>
 
-    <h1>Luca Airline</h1>
+    <div class="container">
 
-    <label>Name:</label>
-    <input type="text" name="name">
+        <h1>✈ Luca Airline</h1>
+        <p class="subtitle">Your journey starts here</p>
 
-    <br><br>
+        <input type="text" id="name" placeholder="Enter your name">
 
-    <label>Surname:</label>
-    <input type="text" name="surname">
+        <input type="text" id="surname" placeholder="Enter your surname">
 
-    <br><br>
+        <input type="number" id="age" placeholder="Enter your age">
 
-    <label>Age:</label>
-    <input type="number" name="age">
+        <br>
+
+        <button onclick="showTicket()">🎫 Show Air Ticket</button>
+
+        <div id="ticket">
+
+            <div class="plane">✈️</div>
+
+            <h2>LUCA AIRLINE</h2>
+            <p>BOARDING PASS</p>
+
+            <div class="ticket-info">
+                <p><strong>Passenger:</strong> <span id="ticketName"></span></p>
+                <p><strong>Age:</strong> <span id="ticketAge"></span></p>
+                <p><strong>Flight:</strong> LA-2026</p>
+                <p><strong>From:</strong> London 🇬🇧</p>
+                <p><strong>To:</strong> Your Destination 🌍</p>
+                <p><strong>Seat:</strong> 12A</p>
+            </div>
+
+            <p class="ticket-number">
+                Ticket No: LA-784529
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+        function showTicket() {
+
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            let age = document.getElementById("age").value;
+
+            if (name === "" || surname === "" || age === "") {
+                alert("Please enter your name, surname and age.");
+                return;
+            }
+
+            document.getElementById("ticketName").textContent =
+                name + " " + surname;
+
+            document.getElementById("ticketAge").textContent = age;
+
+            document.getElementById("ticket").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
+```
